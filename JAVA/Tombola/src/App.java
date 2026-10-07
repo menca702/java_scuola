@@ -1,44 +1,40 @@
 public class App {
     public static void main(String[] args) throws Exception {
         
-        Tombola tombola = new Tombola();
-        
-        //creazione cartelle * giocatori
-        String[] nomiGiocatori = {"Anna", "Marco", "Giulia"};
-        for (int i = 0; i < nomiGiocatori.length; i++) {
-            Giocatore g = new Giocatore(nomiGiocatori[i], "giocatore" + i + ".png");
-            g.add(new Cartella());
-            g.add(new Cartella());
-            tombola.add(g);
+        Giocatore[] g = new Giocatore[4];
+    
+        g[0] = new Giocatore("Marco", "img/Marco.jpg");
+        g[0].add(new Cartella());
+        g[0].add(new Cartella());
+        g[0].add(new Cartella());
+    
+        g[1] = new Giocatore("Elisa", "img/Elisa.jpg");
+        g[1].add(new Cartella());
+        g[1].add(new Cartella());
+    
+        g[2] = new Giocatore("Marianna", "img/Marianna.jpg");
+        g[2].add(new Cartella());
+    
+        g[3] = new Giocatore("Federico", "img/Federico.jpg");
+        g[3].add(new Cartella());
+    
+        Tombola t = new Tombola();
+        for (int i = 0; i < g.length; i++) {
+            t.add(g[i]);
         }
- 
-        int[] combinazioni = {2, 3, 4, 5};
-        String[] nomiCombinazioni = {"Ambo", "Terno", "Quaterna", "Cinquina"};
-        boolean[] assegnata = new boolean[combinazioni.length]; //tiene traccia dei premi
- 
-        //inizio del gioco (fase principale)
-        int estrazioni = 0; //numeri usciti fino ad ora
-        while (tombola.vincitore(15) == null) {
-            tombola.gioca();
-            estrazioni++;
-            
-            //scorre i premi e assegna quelli non ancora vinti
-            for (int i = 0; i < combinazioni.length; i++) {
-                if (!assegnata[i]) {
-                    Giocatore giocatore = tombola.vincitore(combinazioni[i]);
-                    if (giocatore != null) {
-                        assegnata[i] = true;
-                        System.out.println(nomiCombinazioni[i] + " a " + giocatore.getName()
-                                + " all'estrazione n. " + estrazioni);
-                    }
-                }
-            }
+    
+        System.out.println("Situazione iniziale");
+        for (int i = 0; i < g.length; i++) {
+            System.out.println(g[i].getName() + ": " + g[i].getNumeroCartelle() + " cartelle");
         }
- 
-        //controllo tombola
-        Giocatore vincitore = tombola.vincitore(15);
-        System.out.println("TOMBOLA! Vince " + vincitore.getName()
-                + " all'estrazione n. " + estrazioni);
+    
+        // gioca finché qualcuno non fa tombola
+        while (t.vincitore(15) == null) {
+            t.gioca();
+        }
+    
+        System.out.println("Situazione finale");
+        System.out.println("Tombola! Ha vinto " + t.vincitore(15).getName());
     }
 
 }
