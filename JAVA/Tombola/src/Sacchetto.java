@@ -25,7 +25,7 @@ public class Sacchetto {
         if (cont == 0) {
             return null;
         }
-        int indice = random.nextInt(cont);   // numero casuale tra 0 e cont-1
+        int indice = random.nextInt(cont);   // numero casuale tra 0 e cont-1 (89)
         int valore = dischetti[indice];
  
         // scambio: porto il numero estratto in fondo alla zona "ancora dentro"
