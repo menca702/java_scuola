@@ -21,8 +21,6 @@ public class Ricevuta {
         System.out.println(ricevute[indice]);
     }
 
-    public int getNumRicevute() {
-        return numRicevute;
-    }
+    public int getNumRicevute() { return numRicevute; }
 
 }
