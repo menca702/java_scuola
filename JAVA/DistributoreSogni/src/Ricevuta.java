@@ -1,5 +1,5 @@
 public class Ricevuta {
-    
+ 
     private String[] ricevute = new String[100];
     private int numRicevute = 0;
 
@@ -12,7 +12,7 @@ public class Ricevuta {
         numRicevute++;
         return numRicevute - 1;
     }
-
+ 
     public void mostraRicevuta(int indice) {
         if (indice < 0 || indice >= numRicevute) {
             System.out.println("Ricevuta non trovata!");
@@ -20,7 +20,9 @@ public class Ricevuta {
         }
         System.out.println(ricevute[indice]);
     }
-
-    public int getNumRicevute() { return numRicevute; }
-
+ 
+    public int getNumRicevute() {
+        return numRicevute;
+    }
+ 
 }
