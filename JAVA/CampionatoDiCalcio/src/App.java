@@ -8,7 +8,7 @@ public class App {
 
             gestione.inserimentoSquadra();
             gestione.inserimentoSquadra();
-            gestione.inserimentoIncontro();
+            gestione.inserimentoSquadra();
 
             gestione.inserimentoIncontro();
             gestione.inserimentoIncontro();
