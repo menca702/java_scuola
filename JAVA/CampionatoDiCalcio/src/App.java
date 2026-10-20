@@ -7,8 +7,14 @@ public class App {
             GestioneCampionato gestione = new GestioneCampionato(2);
 
             gestione.inserimentoSquadra();
+            gestione.inserimentoSquadra();
+            gestione.inserimentoIncontro();
 
             gestione.inserimentoIncontro();
+            gestione.inserimentoIncontro();
+            gestione.inserimentoIncontro();
+
+            gestione.mostraPodio();
 
             System.out.println("\nEsecuzione completata con successo!");
 

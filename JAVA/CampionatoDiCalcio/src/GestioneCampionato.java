@@ -85,11 +85,23 @@ public class GestioneCampionato {
         writer.flush();
     }
 
-    public void mostraPodio(String[] nomiSquadre, int[] puntiSquadre) throws IOException {
-        classifiche.getPodio(puntiSquadre, nomiSquadre);
+    public void mostraPodio() throws IOException {
+        String[] nomi = new String[countSquadre];
+        int[] punti = new int[countSquadre];
+
+        for (int i = 0; i < countSquadre; i++) {
+            nomi[i] = squadre[i].nome;
+            int sommaPunti = 0;
+            for (int p = 0; p < squadre[i].count; p++) {
+                sommaPunti += squadre[i].golFatti[p];
+            }
+            punti[i] = sommaPunti;
+        }
+
+        classifiche.getPodio(punti, nomi);
         
         // Stampa tramite OutputStreamWriter
-        writer.write(classifiche.toString(nomiSquadre.length > 0 ? nomiSquadre[0] : "", nomiSquadre.length > 1 ? nomiSquadre[1] : "") + "\n");
+        writer.write(classifiche.toString(nomi.length > 0 ? nomi[0] : "", nomi.length > 1 ? nomi[1] : "") + "\n");
         writer.flush();
     }
 }
