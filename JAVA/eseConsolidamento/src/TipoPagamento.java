@@ -1,0 +1,1 @@
+public enum TipoPagamento { CONTANTI, ELETTRONICO }
