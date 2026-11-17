@@ -1,0 +1,5 @@
+esempio da studiare:
+creare un programma che scrive i numeri:
+- da 1 a 10
+- da 100 a 800
+attravrso 2 threads cha lavorino in parallelo
